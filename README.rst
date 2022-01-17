@@ -20,8 +20,8 @@ Locales linter with pre-commit integration.
     :alt: CII Best Practices
     :target: https://bestpractices.coreinfrastructure.org/projects/552
 
-.. image:: https://img.shields.io/pypi/v/locale-lint.svg
-    :target: https://pypi.org/project/locale-lint/
+.. image:: https://img.shields.io/pypi/v/locale_lint.svg
+    :target: https://pypi.org/project/locale_lint/
     :alt: PyPI package
 
 .. image:: https://readthedocs.org/projects/weblate/badge/
@@ -35,4 +35,4 @@ The Python module can be installed from the PyPI:
 
 .. code-block:: sh
 
-    pip install locale-lint
+    pip install locale_lint

@@ -14,7 +14,6 @@ Locales linter with pre-commit integration.
 [![PyPI package](https://img.shields.io/pypi/v/locale_lint.svg)](https://pypi.org/project/locale_lint/)
 [![Documenation](https://readthedocs.org/projects/weblate/badge/)](https://docs.weblate.org/en/latest/locale_lint.html)
 
-
 ## Usage
 
 The Python module can be installed from the PyPI:

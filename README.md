@@ -14,8 +14,27 @@ Linter for localization files powered by Weblate.
 [![PyPI package](https://img.shields.io/pypi/v/locale_lint.svg)](https://pypi.org/project/locale_lint/)
 [![Documenation](https://readthedocs.org/projects/weblate/badge/)](https://docs.weblate.org/en/latest/locale_lint.html)
 
-## Usage
+## Using manually
 
 The Python module can be installed from the PyPI:
 
     pip install locale_lint
+
+Run to lint current directory:
+
+    locale_lint lint
+
+## Using as GitHub action
+
+Paste following snippet to your workflow YaML:
+
+      - name: Weblate Locale Linter
+        uses: WeblateOrg/locale_lint@main
+
+## Using as pre-commit hook
+
+Paste following snippet to your pre-commit configuration YAML:
+
+- repo: https://github.com/WeblateOrg/locale_lint
+  rev: main
+  hooks: - id: locale_lint

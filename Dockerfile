@@ -1,4 +1,4 @@
-FROM python:3.10.1-alpine
+FROM python:3.10.1-slim-bullseye
 
 LABEL name="locale_lint"
 LABEL maintainer="Michal Čihař <michal@cihar.com>"
@@ -7,7 +7,7 @@ LABEL org.opencontainers.image.documentation="https://docs.weblate.org/"
 LABEL org.opencontainers.image.source="https://github.com/WeblateOrg/locale_lint"
 LABEL org.opencontainers.image.vendor="Michal Čihař"
 LABEL org.opencontainers.image.title="locale_lint"
-LABEL org.opencontainers.image.description="Command-line client for Weblate"
+LABEL org.opencontainers.image.description="Locale Lint by  Weblate"
 LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
 
 COPY LICENSE setup.cfg setup.py requirements.txt /app/

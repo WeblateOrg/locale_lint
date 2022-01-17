@@ -31,14 +31,14 @@ Run to lint current directory:
 Paste following snippet to your workflow YaML:
 
       - name: Weblate Locale Linter
-        uses: WeblateOrg/locale_lint@main
+        uses: WeblateOrg/locale_lint@v0.1
 
 ## Using as pre-commit hook
 
 Paste following snippet to your pre-commit configuration YAML:
 
     - repo: https://github.com/WeblateOrg/locale_lint
-      rev: main
+      rev: v0.1
       hooks:
       - id: locale_lint
 

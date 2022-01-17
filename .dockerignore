@@ -9,3 +9,4 @@ SECURITY.md
 Dockerfile
 docker-compose
 requirements-lint.txt
+scripts

@@ -1,5 +1,5 @@
 0.1
 ---
 
-* Not yet released.
+* Released on 2022-01-17.
 * Initial release with support for PO and Android files.

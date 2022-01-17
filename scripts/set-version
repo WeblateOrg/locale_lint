@@ -1,0 +1,27 @@
+#!/bin/sh
+
+set -e
+
+if [ -z "$1" ] ; then
+    echo 'Usage: ./scripts/set-version VERSION'
+    exit 1
+fi
+
+sed -i "s/^version = .*,/version = \"$1\",/" setup.cfg
+sed -Ei "s/(image: \".*:).*/\\1v$1\"/" action.yml
+sed -Ei "s/(uses:.*@).*/\\1v$1/" README.md
+sed -i "s/rev: .*/rev: v$1/" README.md
+
+# Update CHANGES.rst
+tmp=`mktemp`
+cp CHANGES.rst $tmp
+cat > CHANGES.rst <<EOT
+$1
+---
+
+* Released on $(LANG=C date --rfc-3339=date).
+EOT
+cat >> CHANGES.rst < $tmp
+rm $tmp
+
+git commit -m "Setting version to $1" README.md CHANGES.rst setup.cfg action.yml

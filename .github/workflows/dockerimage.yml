@@ -84,7 +84,7 @@ jobs:
       - name: List Docker images
         run: docker image ls --all
       - name: Test the Docker image
-        run: docker run --rm weblate/locale_lint:test version | grep "version"
+        run: docker run --rm weblate/locale_lint:test --version | grep "version"
 
   anchore:
     runs-on: ubuntu-20.04

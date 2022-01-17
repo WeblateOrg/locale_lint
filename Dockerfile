@@ -17,6 +17,14 @@ COPY ./locale_lint/ /app/locale_lint
 # See: https://github.com/Docker-Hub-frolvlad/docker-alpine-python3/pull/13
 ENV PYTHONUNBUFFERED=1
 
+RUN \
+  export DEBIAN_FRONTEND=noninteractive \
+  && apt-get update \
+  && apt-get install --no-install-recommends -y \
+    libxml2-dev \
+  && apt-get clean \
+  && rm -rf /root/.cache /root/.cargo /tmp/* /var/lib/apt/lists/*
+
 RUN pip install --no-cache-dir -e /app && adduser -S weblate
 
 WORKDIR /home/weblate

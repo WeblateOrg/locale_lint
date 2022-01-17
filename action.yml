@@ -1,0 +1,9 @@
+name: "Locale Linter"
+author: "Weblate"
+description: "Locale linter."
+runs:
+  using: "docker"
+  image: "docker://ghcr.io/WeblateOrg/locale_linter:edge"
+branding:
+  icon: "check-square"
+  color: "white"

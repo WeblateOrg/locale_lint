@@ -7,6 +7,8 @@ used by over 2500 libre projects and companies in more than 165 countries.**
 
 Linter for localization files powered by Weblate.
 
+_This project is in beta. The interface, features, supported formats are subject to change without any intent to keep backward compatibility._
+
 [![Website](https://img.shields.io/badge/website-weblate.org-blue.svg)](https://weblate.org/)
 [![Translation status](https://hosted.weblate.org/widgets/weblate/-/svg-badge.svg)](https://hosted.weblate.org/engage/weblate/?utm_source=widget)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/552/badge)](https://bestpractices.coreinfrastructure.org/projects/552)
@@ -39,3 +41,11 @@ Paste following snippet to your pre-commit configuration YAML:
       rev: main
       hooks:
       - id: locale_lint
+
+## Supported formats
+
+All [file formats supported by
+Weblate](https://docs.weblate.org/en/latest/formats.html) will be supported. We will gradualy add support for more formats during the beta.
+
+- Android resource strings
+- GNU Gettext PO files

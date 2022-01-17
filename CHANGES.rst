@@ -1,4 +1,5 @@
 * Improved pre-commit hook performance on huge repositories.
+* Fixed GitHub action image name.
 
 0.1
 ---

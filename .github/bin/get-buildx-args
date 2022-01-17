@@ -37,7 +37,7 @@ else
 
         # Generate tags
         case "$GITHUB_REF" in
-            refs/tags/[0-9]*)
+            refs/tags/v[0-9]*)
                 echo --tag "${DOCKER_IMAGE:-weblate/locale_lint}:${GITHUB_REF#refs/tags/}"
                 echo --tag "${DOCKER_IMAGE:-weblate/locale_lint}:latest"
                 ;;

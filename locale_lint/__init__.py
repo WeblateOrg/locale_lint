@@ -17,8 +17,19 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
+import glob
+import sys
+
 import click
+from translate.storage.aresource import AndroidResourceFile
+from translate.storage.pypo import pofile
 from translation_finder import discover
+
+FORMATS = {
+    "po": pofile,
+    "po-mono": pofile,
+    "aresource": AndroidResourceFile,
+}
 
 
 @click.group()
@@ -32,12 +43,40 @@ def locale_lint():
 @click.option("--source-language", default="en")
 @click.option("--eager", is_flag=True, default=False)
 def lint(directory: str, source_language: str, eager: bool):
+    failures = 0
+    skipped = 0
+    passed = 0
     for result in discover(
         directory,
         source_language=source_language,
         eager=eager,
     ):
-        click.echo(result)
+        handler = FORMATS.get(result["file_format"])
+
+        if handler is None:
+            click.echo(
+                f"No lint supported for {result['file_format']}: {result['filemask']}"
+            )
+            skipped += 1
+        else:
+            filenames = list(glob.glob(result["filemask"]))
+            for extra in ("template", "new_base"):
+                if extra in result:
+                    filenames.append(result[extra])
+            for filename in filenames:
+                try:
+                    handler.parsefile(filename)
+                    passed += 1
+                except Exception as error:
+                    click.echo(f"Failed to parse {filename}: {error}", err=True)
+                    failures += 1
+
+    click.echo(
+        f"Locale lint summary: {passed} passed, {failures} failures, {skipped} skipped",
+        err=bool(failures),
+    )
+    if failures:
+        sys.exit(failures)
 
 
 if __name__ == "__main__":

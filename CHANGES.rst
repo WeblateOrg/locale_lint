@@ -2,4 +2,4 @@
 ---
 
 * Not yet released.
-* Initial release.
+* Initial release with support for PO and Android files.

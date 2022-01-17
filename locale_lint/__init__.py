@@ -19,6 +19,7 @@
 
 import glob
 import sys
+from typing import Optional, Tuple
 
 import click
 from translate.storage.aresource import AndroidResourceFile
@@ -38,11 +39,12 @@ def locale_lint():
     pass
 
 
-@locale_lint.command()
-@click.option("--directory", default=".")
-@click.option("--source-language", default="en")
-@click.option("--eager", is_flag=True, default=False)
-def lint(directory: str, source_language: str, eager: bool):
+def run_lint(
+    directory: str,
+    source_language: str,
+    eager: bool,
+    filter_filenames: Optional[Tuple[str, ...]] = None,
+):
     failures = 0
     skipped = 0
     passed = 0
@@ -53,17 +55,19 @@ def lint(directory: str, source_language: str, eager: bool):
     ):
         handler = FORMATS.get(result["file_format"])
 
-        if handler is None:
-            click.echo(
-                f"No lint supported for {result['file_format']}: {result['filemask']}"
-            )
-            skipped += 1
-        else:
-            filenames = list(glob.glob(result["filemask"]))
-            for extra in ("template", "new_base"):
-                if extra in result:
-                    filenames.append(result[extra])
+        filenames = list(glob.glob(result["filemask"]))
+        for extra in ("template", "new_base"):
+            if extra in result:
+                filenames.append(result[extra])
             for filename in filenames:
+                if handler is None:
+                    click.echo(
+                        f"No lint supported for {result['file_format']}: {filename}"
+                    )
+                    skipped += 1
+                    continue
+                if filter_filenames and filename not in filter_filenames:
+                    continue
                 try:
                     handler.parsefile(filename)
                     passed += 1
@@ -77,6 +81,25 @@ def lint(directory: str, source_language: str, eager: bool):
     )
     if failures:
         sys.exit(failures)
+
+
+@locale_lint.command()
+@click.option("--directory", default=".")
+@click.option("--source-language", default="en")
+@click.option("--eager", is_flag=True, default=False)
+def lint(directory: str, source_language: str, eager: bool):
+    run_lint(directory, source_language, eager)
+
+
+@locale_lint.command()
+@click.option("--directory", default=".")
+@click.option("--source-language", default="en")
+@click.option("--eager", is_flag=True, default=False)
+@click.argument("filenames", nargs=-1, required=True)
+def lint_files(
+    directory: str, source_language: str, eager: bool, filenames: Tuple[str, ...]
+):
+    run_lint(directory, source_language, eager, filenames)
 
 
 if __name__ == "__main__":

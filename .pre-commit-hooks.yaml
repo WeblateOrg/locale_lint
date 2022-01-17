@@ -1,7 +1,6 @@
 - id: locale_lint
   name: Lint locale files
   description: This hook validates locale files.
-  entry: locale_lint lint
+  entry: locale_lint lint-files
   language: python
-  pass_filenames: false
   types: [file]

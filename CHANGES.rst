@@ -1,3 +1,5 @@
+* Improved pre-commit hook performance on huge repositories.
+
 0.1
 ---
 

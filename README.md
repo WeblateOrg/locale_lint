@@ -3,9 +3,9 @@
 **Weblate is a copylefted libre software web-based continuous localization system,
 used by over 2500 libre projects and companies in more than 165 countries.**
 
-# locale_lint
+# Weblate Locale Linter
 
-Locales linter with pre-commit integration.
+Linter for localization files powered by Weblate.
 
 [![Website](https://img.shields.io/badge/website-weblate.org-blue.svg)](https://weblate.org/)
 [![Translation status](https://hosted.weblate.org/widgets/weblate/-/svg-badge.svg)](https://hosted.weblate.org/engage/weblate/?utm_source=widget)

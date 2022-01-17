@@ -1,6 +1,6 @@
-name: "Locale Linter"
+name: "Weblate Locale Linter"
 author: "Weblate"
-description: "Locale linter."
+description: "Linter for localization files powered by Weblate."
 runs:
   using: "docker"
   image: "docker://ghcr.io/WeblateOrg/locale_linter:edge"

@@ -7,7 +7,7 @@ LABEL org.opencontainers.image.documentation="https://docs.weblate.org/"
 LABEL org.opencontainers.image.source="https://github.com/WeblateOrg/locale_lint"
 LABEL org.opencontainers.image.vendor="Michal Čihař"
 LABEL org.opencontainers.image.title="locale_lint"
-LABEL org.opencontainers.image.description="Locale Lint by  Weblate"
+LABEL org.opencontainers.image.description="Weblate Locale Linter"
 LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
 
 COPY LICENSE setup.cfg setup.py requirements.txt /app/

@@ -3,7 +3,7 @@ author: "Weblate"
 description: "Linter for localization files powered by Weblate."
 runs:
   using: "docker"
-  image: "docker://ghcr.io/weblateorg/locale_linter:v0.1"
+  image: "docker://ghcr.io/weblateorg/locale_linter:v0.2"
 branding:
   icon: "check-square"
   color: "white"

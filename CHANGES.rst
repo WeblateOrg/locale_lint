@@ -1,3 +1,7 @@
+0.2
+---
+
+* Released on 2022-01-17.
 * Improved pre-commit hook performance on huge repositories.
 * Fixed GitHub action image name.
 

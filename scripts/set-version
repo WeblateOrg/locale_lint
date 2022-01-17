@@ -7,7 +7,7 @@ if [ -z "$1" ] ; then
     exit 1
 fi
 
-sed -i "s/^version = .*,/version = \"$1\",/" setup.cfg
+sed -i "s/^version = .*/version = $1/" setup.cfg
 sed -Ei "s/(image: \".*:).*/\\1v$1\"/" action.yml
 sed -Ei "s/(uses:.*@).*/\\1v$1/" README.md
 sed -i "s/rev: .*/rev: v$1/" README.md

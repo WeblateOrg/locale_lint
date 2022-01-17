@@ -24,6 +24,7 @@ RUN \
   && apt-get update \
   && apt-get install --no-install-recommends -y \
     libxml2-dev \
+    libxslt1-dev \
   && apt-get clean \
   && rm -rf /root/.cache /root/.cargo /tmp/* /var/lib/apt/lists/*
 

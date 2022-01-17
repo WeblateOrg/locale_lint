@@ -19,6 +19,7 @@ ENV PYTHONUNBUFFERED=1
 
 RUN useradd --shell /bin/sh --user-group weblate --groups root,tty
 
+# hadolint ignore=DL3008
 RUN \
   export DEBIAN_FRONTEND=noninteractive \
   && apt-get update \

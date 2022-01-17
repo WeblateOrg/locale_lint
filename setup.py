@@ -2,7 +2,7 @@
 #
 # Copyright © 2012–2022 Michal Čihař <michal@cihar.com>
 #
-# This file is part of Weblate Client <https://github.com/WeblateOrg/locale_lint>
+# This file is part of Locale Lint <https://github.com/WeblateOrg/locale_lint>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by

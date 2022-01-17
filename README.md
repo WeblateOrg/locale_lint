@@ -35,6 +35,7 @@ Paste following snippet to your workflow YaML:
 
 Paste following snippet to your pre-commit configuration YAML:
 
-- repo: https://github.com/WeblateOrg/locale_lint
-  rev: main
-  hooks: - id: locale_lint
+    - repo: https://github.com/WeblateOrg/locale_lint
+      rev: main
+      hooks:
+      - id: locale_lint

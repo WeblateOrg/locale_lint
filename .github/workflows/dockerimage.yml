@@ -115,6 +115,7 @@ jobs:
         uses: anchore/scan-action@v3
         with:
           image: "weblate/locale_lint:test"
+          fail-build: false
           acs-report-enable: true
           severity-cutoff: high
       - name: Upload Anchore Scan Report

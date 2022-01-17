@@ -1,3 +1,9 @@
+0.2.1
+-----
+
+* Released on 2022-01-17.
+* Fixed publishing release.
+
 0.2
 ---
 

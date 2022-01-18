@@ -1,3 +1,9 @@
+0.2.2
+-----
+
+* Released on 2022-01-18.
+* Fixed GitHub action image name.
+
 0.2.1
 -----
 

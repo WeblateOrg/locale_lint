@@ -1,9 +1,9 @@
-name: "Weblate Locale Linter"
-author: "Weblate"
-description: "Linter for localization files powered by Weblate."
+name: Weblate Locale Linter
+author: Weblate
+description: Linter for localization files powered by Weblate.
 runs:
-  using: "docker"
-  image: "docker://ghcr.io/weblateorg/locale_lint:v0.2.2"
+  using: docker
+  image: docker://ghcr.io/weblateorg/locale_lint:v0.2.2
 branding:
-  icon: "check-square"
-  color: "white"
+  icon: check-square
+  color: white

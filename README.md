@@ -19,13 +19,13 @@ _This project is in beta. The interface, features, supported formats are subject
 
 The Python module can be installed from the PyPI:
 
-```
+```console
 pip install locale_lint
 ```
 
 Run to lint current directory:
 
-```
+```console
 locale_lint lint
 ```
 
@@ -33,16 +33,16 @@ locale_lint lint
 
 Paste following snippet to your workflow YaML:
 
-```
-  - name: Weblate Locale Linter
-    uses: WeblateOrg/locale_lint@v0.2.2
+```yaml
+- name: Weblate Locale Linter
+  uses: WeblateOrg/locale_lint@v0.2.2
 ```
 
 ## Using as pre-commit hook
 
 Paste following snippet to your pre-commit configuration YAML:
 
-```
+```yaml
 - repo: https://github.com/WeblateOrg/locale_lint
   rev: v0.2.2
   hooks:

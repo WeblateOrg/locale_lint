@@ -56,3 +56,7 @@ Weblate](https://docs.weblate.org/en/latest/formats.html) will be supported. We 
 
 - Android resource strings
 - GNU Gettext PO files
+
+## Contributing
+
+Contributions are welcome! See [documentation](https://docs.weblate.org/en/latest/contributing/modules.html) for more information.

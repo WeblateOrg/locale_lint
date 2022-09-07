@@ -1,4 +1,4 @@
-FROM python:3.10.6-slim-bullseye
+FROM python:3.11.0rc1-slim-bullseye
 
 LABEL name="locale_lint"
 LABEL maintainer="Michal Čihař <michal@cihar.com>"

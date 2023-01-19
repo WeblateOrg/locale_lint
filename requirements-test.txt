@@ -2,4 +2,4 @@
 -r requirements-lint.txt
 pytest
 pytest-cov
-twine
+twine==4.0.2

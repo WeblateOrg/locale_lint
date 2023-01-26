@@ -5,7 +5,7 @@ on:
     - main
 jobs:
   sync-readme:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     if: ${{ github.repository == 'WeblateOrg/locale_lint' }}
     steps:
     - name: Checkout

@@ -1,5 +1,4 @@
 -r requirements.txt
--r requirements-lint.txt
 pytest
 pytest-cov
 twine==4.0.2

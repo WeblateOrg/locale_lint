@@ -7,6 +7,9 @@ profile = "black"
 [tool.ruff]
 format = "github"
 ignore = [
+  "D10",  # TODO: we are missing many docstrings
+  "D203",  # CONFIG: incompatible with D211
+  "D212",  # CONFIG: incompatible with D213
 ]
 select = [
   "E",

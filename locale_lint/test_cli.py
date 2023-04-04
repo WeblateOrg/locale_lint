@@ -32,4 +32,4 @@ def test_lint():
     runner = CliRunner()
     result = runner.invoke(locale_lint, ["lint"])
     assert result.exit_code == 0
-    assert "Locale lint summary: 0 passed, 0 failures, 0 skipped\n" == result.output
+    assert result.output == "Locale lint summary: 0 passed, 0 failures, 0 skipped\n"

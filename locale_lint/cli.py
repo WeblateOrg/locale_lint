@@ -19,7 +19,7 @@
 
 import glob
 import sys
-from typing import Optional, Tuple
+from typing import Optional
 
 import click
 from translate.storage.aresource import AndroidResourceFile
@@ -43,7 +43,7 @@ def run_lint(
     directory: str,
     source_language: str,
     eager: bool,
-    filter_filenames: Optional[Tuple[str, ...]] = None,
+    filter_filenames: Optional[tuple[str, ...]] = None,
 ):
     failures = 0
     skipped = 0
@@ -97,6 +97,6 @@ def lint(directory: str, source_language: str, eager: bool):
 @click.option("--eager", is_flag=True, default=False)
 @click.argument("filenames", nargs=-1, required=True)
 def lint_files(
-    directory: str, source_language: str, eager: bool, filenames: Tuple[str, ...]
+    directory: str, source_language: str, eager: bool, filenames: tuple[str, ...]
 ):
     run_lint(directory, source_language, eager, filenames)

@@ -10,7 +10,6 @@ ignore = [
   "D203",  # CONFIG: incompatible with D211
   "D212"  # CONFIG: incompatible with D213
 ]
-output-format = "github"
 select = [
   "E",
   "F",

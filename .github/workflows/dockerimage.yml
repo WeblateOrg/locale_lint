@@ -112,7 +112,7 @@ jobs:
     - name: Checkout the code
       uses: actions/checkout@v4
     - name: Anchore scan action
-      uses: anchore/scan-action@v4
+      uses: anchore/scan-action@v5
       with:
         image: weblate/locale_lint:test
         fail-build: false

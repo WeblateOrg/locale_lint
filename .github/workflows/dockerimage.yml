@@ -91,6 +91,8 @@ jobs:
     runs-on: ubuntu-24.04
     name: Anchore Container Scan, ${{ matrix.architecture }}
     needs: [build]
+    permissions:
+      security-events: write
     strategy:
       matrix:
         architecture: [linux/amd64]
@@ -114,19 +116,18 @@ jobs:
       uses: actions/checkout@v4
     - name: Anchore scan action
       uses: anchore/scan-action@v6
+      id: scan
       with:
         image: weblate/locale_lint:test
         fail-build: false
-        acs-report-enable: true
-        severity-cutoff: high
     - name: Upload Anchore Scan Report
       uses: github/codeql-action/upload-sarif@v3
       with:
-        sarif_file: results.sarif
+        sarif_file: ${{ steps.scan.outputs.sarif }}
     - uses: actions/upload-artifact@v4
       with:
         name: Anchore scan SARIF
-        path: results.sarif
+        path: ${{ steps.scan.outputs.sarif }}
 
   trivy:
     runs-on: ubuntu-24.04
@@ -137,6 +138,8 @@ jobs:
         architecture: [linux/amd64]
     env:
       MATRIX_ARCHITECTURE: ${{ matrix.architecture }}
+    permissions:
+      security-events: write
     steps:
     - uses: actions/checkout@v4
     - name: Set up Docker Buildx

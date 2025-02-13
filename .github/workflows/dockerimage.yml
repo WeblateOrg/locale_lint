@@ -33,7 +33,9 @@ jobs:
     - name: Configure Docker build
       run: .github/bin/get-buildx-args
     - name: Build the Docker image
-      run: docker buildx build $(.github/bin/get-buildx-args)
+      run: |
+        # shellcheck disable=SC2046
+        docker buildx build $(.github/bin/get-buildx-args)
 
   buildx:
     runs-on: ubuntu-24.04-arm
@@ -62,7 +64,9 @@ jobs:
     - name: Configure Docker build
       run: .github/bin/get-buildx-args
     - name: Build the Docker image
-      run: docker buildx build $(.github/bin/get-buildx-args)
+      run: |
+        # shellcheck disable=SC2046
+        docker buildx build $(.github/bin/get-buildx-args)
 
   test:
     runs-on: ubuntu-24.04
@@ -85,7 +89,9 @@ jobs:
         path: /tmp/.buildx-cache/${{ matrix.architecture }}
         key: ${{ runner.os }}-buildx-${{ github.sha }}-${{ matrix.architecture }}
     - name: Build the Docker image
-      run: docker buildx build $(.github/bin/get-buildx-args load)
+      run: |
+        # shellcheck disable=SC2046
+        docker buildx build $(.github/bin/get-buildx-args load)
     - name: List Docker images
       run: docker image ls --all
     - name: Test the Docker image
@@ -114,7 +120,9 @@ jobs:
         path: /tmp/.buildx-cache/${{ matrix.architecture }}
         key: ${{ runner.os }}-buildx-${{ github.sha }}-${{ matrix.architecture }}
     - name: Build the Docker image
-      run: docker buildx build $(.github/bin/get-buildx-args load)
+      run: |
+        # shellcheck disable=SC2046
+        docker buildx build $(.github/bin/get-buildx-args load)
     - name: List Docker images
       run: docker image ls --all
     - name: Checkout the code
@@ -157,7 +165,9 @@ jobs:
         path: /tmp/.buildx-cache/${{ matrix.architecture }}
         key: ${{ runner.os }}-buildx-${{ github.sha }}-${{ matrix.architecture }}
     - name: Build the Docker image
-      run: docker buildx build $(.github/bin/get-buildx-args load)
+      run: |
+        # shellcheck disable=SC2046
+        docker buildx build $(.github/bin/get-buildx-args load)
     - name: List Docker images
       run: docker image ls --all
     - name: Checkout the code
@@ -215,7 +225,9 @@ jobs:
     - name: Configure Docker build
       run: .github/bin/get-buildx-args publish
     - name: Publish the Docker images
-      run: docker buildx build $(.github/bin/get-buildx-args publish)
+      run: |
+        # shellcheck disable=SC2046
+        docker buildx build $(.github/bin/get-buildx-args publish)
 
   push_github:
     runs-on: ubuntu-24.04
@@ -261,4 +273,6 @@ jobs:
     - name: Configure Docker build
       run: .github/bin/get-buildx-args publish
     - name: Publish the Docker images
-      run: docker buildx build $(.github/bin/get-buildx-args publish)
+      run: |
+        # shellcheck disable=SC2046
+        docker buildx build $(.github/bin/get-buildx-args publish)

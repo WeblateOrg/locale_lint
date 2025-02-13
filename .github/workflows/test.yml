@@ -54,3 +54,5 @@ jobs:
       with:
         flags: unittests
         name: Python ${{ matrix.python-version }}, ${{ matrix.os }}
+permissions:
+  contents: read

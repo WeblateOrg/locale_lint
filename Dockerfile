@@ -1,4 +1,4 @@
-FROM python:3.12.10-slim-bullseye
+FROM python:3.12.10-slim-bullseye@sha256:87128420453f1b60615c67120fad73dcdf9bed02a26c7c027079bc7a2589cf97
 
 LABEL name="locale_lint"
 LABEL maintainer="Michal Čihař <michal@cihar.com>"

@@ -1,3 +1,10 @@
+0.3.0
+-----
+
+* Released on 2025-04-22.
+* Modernized build.
+* Use new base image.
+
 0.2.2
 -----
 

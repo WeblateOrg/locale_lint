@@ -29,3 +29,4 @@ jobs:
       run: uv publish --trusted-publishing always
 permissions:
   contents: read
+  id-token: write

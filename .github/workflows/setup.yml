@@ -19,7 +19,7 @@ jobs:
         enable-cache: true
         cache-dependency-glob: ''
     - name: Install dependencies
-      run: uv pip install --system -e .[test]
+      run: uv pip install --system -e ".[test]"
     - name: build
       run: uv build
     - name: twine

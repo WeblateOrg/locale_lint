@@ -1,3 +1,9 @@
+0.3.1
+-----
+
+* Released on 2025-04-22.
+* Fixed publishing to PyPI.
+
 0.3.0
 -----
 

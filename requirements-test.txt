@@ -1,5 +1,0 @@
--r requirements.txt
-build==1.2.2.post1
-pytest
-pytest-cov
-twine==6.1.0

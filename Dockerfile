@@ -10,7 +10,7 @@ LABEL org.opencontainers.image.title="locale_lint"
 LABEL org.opencontainers.image.description="Weblate Locale Linter"
 LABEL org.opencontainers.image.licenses="GPL-3.0-or-later"
 
-COPY README.md LICENSE setup.cfg setup.py requirements.txt /app/
+COPY README.md LICENSE pyproject.toml /app/
 COPY ./locale_lint/ /app/locale_lint
 
 # This hack is widely applied to avoid python printing issues in docker containers.

@@ -1,7 +1,7 @@
 # Copyright © Michal Čihař <michal@weblate.org>
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-FROM weblate/dev:2025.22.0@sha256:1f22c92d157a2f82343e30189e07157ccdd5715732bd8186d2e706c2cc38d95b AS build
+FROM weblate/dev:2025.23.0@sha256:ea9109f040d41b3095f6387ce8399b193647e4d9b2e4c01debc4ef71535835c2 AS build
 
 COPY README.md LICENSE pyproject.toml /app/src/
 COPY ./locale_lint/ /app/src/locale_lint

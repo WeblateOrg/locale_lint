@@ -3,20 +3,20 @@
 # Generate command-line options for docker buildx build
 
 # Load from local cache
-if [ -n "$MATRIX_ARCHITECTURE" ] ; then
+if [ -n "$MATRIX_ARCHITECTURE" ]; then
     echo --cache-from "type=local,src=/tmp/.buildx-cache/$MATRIX_ARCHITECTURE"
 else
-    for arch in linux/amd64 linux/arm64 ; do
+    for arch in linux/amd64 linux/arm64; do
         echo --cache-from "type=local,src=/tmp/.buildx-cache/$arch"
     done
 fi
 
 # Write to local cache unless publishing (not compatible with push)
-if [ "$1" != "publish" ] ; then
+if [ "$1" != "publish" ]; then
     echo --cache-to "type=local,dest=/tmp/.buildx-cache/$MATRIX_ARCHITECTURE,mode=max"
 fi
 
-if [ "$1" = "load" ] ; then
+if [ "$1" = "load" ]; then
     # Ommit list of platforms loading, see https://github.com/docker/buildx/issues/59
     echo --output=type=docker
     # Test tag, to avoid collistion with real ones
@@ -27,23 +27,23 @@ else
     # Enable more platforms in future:
     # linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/386,linux/ppc64le,linux/s390x
 
-    if [ "$1" = "publish-bleeding" ] ; then
+    if [ "$1" = "publish-bleeding" ]; then
         # Publishing bleeding edge image
         echo --output "type=image,push=true"
         echo --tag "${DOCKER_IMAGE:-weblate/locale_lint}:bleeding"
-    elif [ "$1" = "publish" ] ; then
+    elif [ "$1" = "publish" ]; then
         # Publishing normal image
         echo --output "type=image,push=true"
 
         # Generate tags
         case "$GITHUB_REF" in
-            refs/tags/v[0-9]*)
-                echo --tag "${DOCKER_IMAGE:-weblate/locale_lint}:${GITHUB_REF#refs/tags/}"
-                echo --tag "${DOCKER_IMAGE:-weblate/locale_lint}:latest"
-                ;;
-            refs/heads/main)
-                echo --tag "${DOCKER_IMAGE:-weblate/locale_lint}:edge"
-                ;;
+        refs/tags/v[0-9]*)
+            echo --tag "${DOCKER_IMAGE:-weblate/locale_lint}:${GITHUB_REF#refs/tags/}"
+            echo --tag "${DOCKER_IMAGE:-weblate/locale_lint}:latest"
+            ;;
+        refs/heads/main)
+            echo --tag "${DOCKER_IMAGE:-weblate/locale_lint}:edge"
+            ;;
         esac
     else
         echo --output "type=image,push=false"

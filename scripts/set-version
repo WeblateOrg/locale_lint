@@ -2,7 +2,7 @@
 
 set -e
 
-if [ -z "$1" ] ; then
+if [ -z "$1" ]; then
     echo 'Usage: ./scripts/set-version VERSION'
     exit 1
 fi
@@ -15,7 +15,7 @@ sed -i "s/rev: .*/rev: v$1/" README.md
 # Update CHANGES.rst
 tmp=$(mktemp)
 cp CHANGES.rst "$tmp"
-cat > CHANGES.rst <<EOT
+cat > CHANGES.rst << EOT
 $1
 ---
 

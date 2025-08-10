@@ -12,7 +12,7 @@ RUN \
     source /app/venv/bin/activate && \
     uv pip install --no-cache-dir -e /app/src
 
-FROM weblate/base:2025.32.0@sha256:461ca833878b3c6b304fc52c9f1fee7ae50581de215537f8cf8ff8638fa95bc6 AS final
+FROM weblate/base:2025.33.0@sha256:b545994b54bc373c5e067c8b939414a634ff248d59bbd4187c99ef0ccdf94600 AS final
 
 LABEL name="locale_lint"
 LABEL maintainer="Michal Čihař <michal@cihar.com>"

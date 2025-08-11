@@ -26,7 +26,7 @@ jobs:
     env:
       MATRIX_ARCHITECTURE: linux/${{ matrix.architecture }}
     steps:
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+    - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
       with:
         persist-credentials: false
     - name: Set up Docker Buildx
@@ -53,7 +53,7 @@ jobs:
     env:
       MATRIX_ARCHITECTURE: linux/${{ matrix.architecture }}
     steps:
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+    - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
       with:
         persist-credentials: false
     - name: Set up QEMU
@@ -86,7 +86,7 @@ jobs:
       MATRIX_ARCHITECTURE: ${{ matrix.architecture }}
       COMPOSE_PROJECT_NAME: wl
     steps:
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+    - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
       with:
         persist-credentials: false
     - name: Set up Docker Buildx
@@ -117,7 +117,7 @@ jobs:
     env:
       MATRIX_ARCHITECTURE: ${{ matrix.architecture }}
     steps:
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+    - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
       with:
         persist-credentials: false
     - name: Set up Docker Buildx
@@ -133,7 +133,7 @@ jobs:
     - name: List Docker images
       run: docker image ls --all
     - name: Checkout the code
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
       with:
         persist-credentials: false
     - name: Anchore scan action
@@ -164,7 +164,7 @@ jobs:
     env:
       MATRIX_ARCHITECTURE: ${{ matrix.architecture }}
     steps:
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+    - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
       with:
         persist-credentials: false
     - name: Set up Docker Buildx
@@ -180,7 +180,7 @@ jobs:
     - name: List Docker images
       run: docker image ls --all
     - name: Checkout the code
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
       with:
         persist-credentials: false
     - name: Run Trivy vulnerability scanner
@@ -212,7 +212,7 @@ jobs:
     if: ${{ startsWith(github.ref, 'refs/tags/') || (github.ref == 'refs/heads/main') }}
     steps:
     - name: Checkout
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
       with:
         persist-credentials: false
     - name: Set up QEMU
@@ -253,7 +253,7 @@ jobs:
       DOCKER_IMAGE: ghcr.io/weblateorg/locale_lint
     steps:
     - name: Checkout
-      uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
       with:
         persist-credentials: false
     - name: Set up QEMU
